@@ -6,6 +6,8 @@
 
 {%block body%} 
 
+    <a href = {% url 'feed:add' %} > Upload Post &rarr; </a> 
+
     {% for post in posts%}
 
         </br> {{post.text}} </br>
