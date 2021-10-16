@@ -8,10 +8,12 @@
 
     {% for post in posts%}
 
-        {{post.text}} </br>
+        </br> {{post.text}} </br>
 
         {% thumbnail post.image "200x200" crop="center" as im %}
-            <img src =  "{{im.url}}" width = "{{im.width}}" height="{{im.height}}" />
+          <a href = "{% url 'feed:detail' post.id %}"> 
+          <img src =  "{{im.url}}" width = "{{im.width}}" height="{{im.height}}" /> 
+          </a>
         {% endthumbnail %}
 
     {% endfor %}
