@@ -3,13 +3,15 @@
 {%block title%} Upload a new image {% endblock %}
 
 {%block body%}
-    <form method = "POST" action = "" enctype = "multipart/form-data">
-    {% csrf_token %}
-    {{form.as_ul}}
 
-    <div>
-        <button type = "Submit">Submit Form</form>
-    </div>
+    <form method = "POST" action = "" enctype = "multipart/form-data" class = "col-sm-4 offset-4 py-5 my-5">
+        <h2> Upload an image!</h2>
+        {% csrf_token %}
+        {{form.as_ul}}
+
+        <div>
+            <button type = "Submit" class = "btn btn-lg btn-success">Submit Form</form>
+        </div>
        
     </form>
 {%endblock%}
