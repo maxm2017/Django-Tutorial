@@ -6,18 +6,28 @@
 
 {%block body%} 
 
-    <a href = {% url 'feed:add' %} > Upload Post &rarr; </a> 
-
+  <div class = "row">
     {% for post in posts%}
 
-        </br> {{post.text}} </br>
+        <div class = "col-sm-6 col-md-4">
 
-        {% thumbnail post.image "200x200" crop="center" as im %}
-          <a href = "{% url 'feed:detail' post.id %}"> 
-          <img src =  "{{im.url}}" width = "{{im.width}}" height="{{im.height}}" /> 
-          </a>
+          <div class="card" style="width: 18rem;">
+          {% thumbnail post.image "200x200" crop="center" as im %}
+            <img src="{{im.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">{{post.text}} </p>
+              <a href="{% url 'feed:detail' post.id %}" class="btn btn-primary">View Full Image</a>
+            </div>
+          </div>
+
+        </div>
+
         {% endthumbnail %}
 
     {% endfor %}
 
+  </div>
+
 {%endblock%}
+
